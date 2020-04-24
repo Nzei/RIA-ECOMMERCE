@@ -1,0 +1,101 @@
+* {
+    font-family: -apple-system;
+}
+
+.header-text {
+    font-size: 30px;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.main-header {
+    font-family: -apple-system;
+}
+
+.first-div {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+
+}
+
+.search-bar {
+    width: 50%;
+    text-align: -webkit-center;
+}
+
+.different-row {
+    text-align: -webkit-center;
+}
+
+
+.first-drop-down {
+    min-height: 50px;
+
+}
+
+.second-drop-down {
+    min-height: 50px;
+
+}
+
+.second-div {
+
+}
+
+.different-row {
+    margin: 0px;
+    padding: 0px;
+}
+
+.first-second-div {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.custom-first-drop-down-form {
+    width: 80%;
+}
+
+.custom-second-drop-down-form {
+    width: 60%;
+}
+
+.custom-drop-down-list {
+    width: 70%;
+    font-size: 15px;
+}
+
+.item-list-class {
+    font-family: -apple-system;
+    font-size: 30px;
+}
+
+.table-class {
+    width: 70%;
+}
+
+.span-class {
+    align-content: center;
+    font-family: -apple-system;
+}
+
+.next-button {
+    font-family: "Apple Color Emoji";
+}
+
+.previous-button {
+    font-family: "Apple Color Emoji";
+}
+
+#category-id {
+    /*font-size: 10px;*/
+}
+
+. first-div {
+    border-right: 1px solid black;
+}

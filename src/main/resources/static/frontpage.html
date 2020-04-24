@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eCommerce</title>
+    <script type="text/javascript" src="utilities/jquery-3.5.0.min.js"></script>
+    <script type="text/javascript" src="utilities/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/frontend.js"></script>
+    <link rel="stylesheet" type="text/css" href="utilities/bootstrap-4.4.1-dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+</head>
+<body>
+<div class="row header-text">
+    <p class="card-title main-header">
+        E-COMMERCE
+    </p>
+    <div class="row different-row first-second-div">
+        <div class="col-sm-6 first-div">
+            <br>
+            <div>
+                <input type="text" class="form-control search-bar" placeholder="Search" id="search-id"
+                       style="display: inline;">
+                <button id="search-button">Search</button>
+            </div>
+
+            <br>
+            <div class="row drop-down">
+                <div class=" search-bar col-sm-7 first-drop-down">
+                    <span style="font-size: 20px">Sort By</span> <select
+                        class="form-control custom-first-drop-down-form" id="first-drop-down-id"
+                        style="display: inline ; width: 70%">
+                    <option value="description,desc">Description in descending order</option>
+                    <option value="description,asc">Description in ascending order</option>
+                    <option value="itemName,desc">Name in descending order</option>
+                    <option value="itemName,asc">Name in ascending order</option>
+                </select>
+                </div>
+                <div class="  col-sm-5 second-drop-down">
+                    <select class="form-control custom-second-drop-down-form" id="second-drop-down-id"
+                            style="display: inline">
+                        <option value="2">2 items per page</option>
+                        <option value="4">4 items per page</option>
+                        <option value="6">6 items per page</option>
+                        <option value="8">8 items per page</option>
+                        <option value="10">10 items per page</option>
+                    </select>
+                </div>
+            </div>
+            <p class="text-wrap item-list-class">Item List</p>
+            <select class="list-group custom-drop-down-list" size="3" id="item-list-id">
+                <option>Food 1</option>
+                <option>Food 2</option>
+                <option>Food 3</option>
+                <option>Food 4</option>
+                <option>Food 5</option>
+                <option>Food 6</option>
+                <option>Food 7</option>
+                <option>Food 8</option>
+                <option>Food 9</option>
+                <option>Food 10</option>
+            </select>
+            <br>
+            <table class="table-class">
+                <tr>
+                    <td style="text-align: left">
+                        <button class="btn previous-button" id="previous-button-id">Prev</button>
+                    </td>
+                    <td style="text-align: center">
+                        <span class="span-class" id="span-text-id">Page X of X</span>
+                    </td>
+                    <td style="text-align: right">
+                        <button class="btn next-button" id="next-button-id">Next</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+        <div class="col-sm-6 second-div">
+            <p>
+                Product information details
+            </p>
+
+            <table style="width:80%;">
+                <tr>
+                    <td style="margin-left: 5px; margin-right: 5px;">Id</td>
+                    <td>
+                        <input id="id-id" type="text" class="form-control custom-form-control" style="width:100%;"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="margin-left: 5px; margin-right: 5px;">Name</td>
+                    <td>
+                        <input id="name-id" type="text" class="form-control custom-form-control" style="width:100%;"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="margin-left: 5px; margin-right: 5px;">Quantity</td>
+                    <td>
+                        <input id="quantity-id" type="text" class="form-control custom-form-control" style="width:100%;"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="margin-left: 5px; margin-right: 5px;">Price (€)</td>
+                    <td>
+                        <input id="price-id" type="text" class="form-control custom-form-control" style="width:100%;"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="margin-left: 5px; margin-right: 5px;">Description</td>
+                    <td>
+                        <textarea class="form-control" id="description-id" rows="4" cols="50"></textarea>
+                    </td>
+                </tr>
+            </table>
+            <br>
+
+            <button class="btn" style="margin: 25px" id="create-button-id">Create</button>
+            <button class="btn" style="margin: 25px" id="update-button-id">Update</button>
+            <button class="btn"  style="margin: 25px" id="delete-button-id">Delete</button>
+            <button class="btn" id="clear-button-task" style="margin:25px">Clear Form</button>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
