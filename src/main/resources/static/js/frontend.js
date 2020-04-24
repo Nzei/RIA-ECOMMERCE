@@ -7,7 +7,6 @@ var presentPageSize = 2;
 var presentSearchParameter = null;
 
 $(document).ready(function () {
-    // fetchAllItems();
 
     $("#first-drop-down-id").change(function () {
         var currentSort = $(this).children("option:selected").val();
@@ -44,9 +43,7 @@ $(document).ready(function () {
         var selectValues = $(this).children("option:selected").val();
         getItemDetails(selectValues);
     });
-    $("#create-button-id").click(function () {
 
-    });
 
     $("#clear-button-task").click(function () {
         $("#quantity-id").val("");
@@ -63,7 +60,7 @@ $(document).ready(function () {
         var itemPrice = $("#price-id").val();
         var creation = {itemName: itemName, itemPrice:itemPrice,description:itemDescription};
         createNewItem(creation, itemQuantity);
-    })
+    });
 
 
     $("#update-button-id").click(function () {
@@ -74,6 +71,21 @@ $(document).ready(function () {
         var itemPrice = $("#price-id").val();
         var update = {itemName: itemName, itemPrice:itemPrice,description:itemDescription, itemId: itemId};
         updateItem(update, itemQuantity);
+    });
+
+    $("#delete-button-id").click(function () {
+        var itemId = $("#id-id").val();
+        if(confirm("Do you want to delete this item?")){
+            deleteItem(itemId);
+        }
+    })
+
+    $("#clear-button-task").click(function () {
+        $("#quantity-id").val("");
+        $("#id-id").val("");
+        $("#name-id").val("");
+        $("#price-id").val("");
+        $("#description-id").val("");
     })
 
 });
@@ -234,7 +246,7 @@ function createNewItem(item, quantity){
             }
             else {
                 var errorResponse = jqXHR.responseJSON;
-                alert("Notice : " + errorResponse.error + ". Message : " + errorResponse.message);
+                alert("Notice : " + errorResponse.error + ". Message : " + errorResponse.errors[0].defaultMessage);
             }
         }
     });
@@ -288,7 +300,7 @@ function updateItem(item, quantity){
             }
             else {
                 var errorResponse = jqXHR.responseJSON;
-                alert("Notice : " + errorResponse.error + ". Message : " + errorResponse.message);
+                alert("Notice : " + errorResponse.error + ". Message : " + errorResponse.errors[0].defaultMessage);
             }
         }
     });
@@ -308,6 +320,32 @@ function updateStock(stock){
         },
         error: function (jqXHR, status, err) {
             $("#quantity-id").val("");
+            if(jqXHR.responseJSON == null){
+                alert("Error connecting...")
+            }
+            else {
+                var errorResponse = jqXHR.responseJSON;
+                alert("Notice : " + errorResponse.error + ". Message : " + errorResponse.errors[0].defaultMessage);
+            }
+        }
+    });
+}
+
+
+function deleteItem(itemId){
+    $.ajax({
+        url: entry_point+"/delete-item-by-id/"+itemId,
+        type: 'DELETE',
+        dataType: 'json', // added data type
+        success: function(res) {
+            alert("Deleted successfully");
+            $("#quantity-id").val("");
+            $("#id-id").val("");
+            $("#name-id").val("");
+            $("#price-id").val("");
+            $("#description-id").val("");
+        },
+        error: function (jqXHR, status, err) {
             if(jqXHR.responseJSON == null){
                 alert("Error connecting...")
             }

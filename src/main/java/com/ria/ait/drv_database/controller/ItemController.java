@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
@@ -61,7 +62,7 @@ public class ItemController {
     }
 
     @PostMapping(path = "/add-item")
-    public ResponseEntity<Item> createNewItem(@RequestBody Item item) {
+    public ResponseEntity<Item> createNewItem(@Valid @RequestBody Item item) {
         Item createdItem = this.itemService.createItem(item);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("{id}").buildAndExpand(createdItem.getItemId()).toUri();
         return ResponseEntity.created(location).body(createdItem);
@@ -69,7 +70,7 @@ public class ItemController {
 
 
     @PutMapping("/update-item")
-    public ResponseEntity updateItem(@RequestBody Item item) {
+    public ResponseEntity updateItem(@Valid @RequestBody Item item) {
         if (item.getItemId() != null) {
             Item updatedItem = this.itemService.updateItem(item) ? itemService.findById(item.getItemId()).get() : null;
             if(updatedItem == null) throw new ItemNotFoundException(String.format("Item with id %s not found",String.valueOf(item.getItemId())));
