@@ -11,5 +11,5 @@ A Java spring based service that demo manages the items of an e-commerce store. 
 7. Open the browser and enter 'localhost:8080' 
 
 ###Demo Video
-The demo video is in the root folder of this repo and a link to the demo video on youtube can be found [here]https://youtu.be/rr2k2GZa-ko</a>
+The demo video is in the root folder of this repo and a link to the demo video on youtube can be found [here](https://youtu.be/rr2k2GZa-ko)</a>
 
