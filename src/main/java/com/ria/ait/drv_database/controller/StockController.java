@@ -77,8 +77,15 @@ public class StockController {
             return new ResponseEntity<>(updatedStock, HttpStatus.OK);
         }
         else if(stock.getItem().getItemId() != null){
-            stock.setStockId(stockService.findByItemId(stock.getItem().getItemId()).get().getStockId());
-            Stock updatedStock = fetchUpdatedStock(stock);
+            Optional<Stock> foundStock = stockService.findByItemId(stock.getItem().getItemId());
+            Stock updatedStock = null;
+            if(foundStock.isPresent()) {
+                stock.setStockId(foundStock.get().getStockId());
+                updatedStock = fetchUpdatedStock(stock);
+            }
+            else{
+                updatedStock = stockService.createStock(stock);
+            }
             if(updatedStock == null) throw new StockNotFoundException(String.format("Stock with id %s not found",String.valueOf(stock.getStockId())));
             return new ResponseEntity<>(updatedStock, HttpStatus.OK);
         }

@@ -4,7 +4,7 @@ var items = [];
 var presentSort = "description,desc";
 var presentPageNumber = 0;
 var presentPageSize = 2;
-var presentSearchParameter = null;
+var presentSearchParameter = "*";
 
 $(document).ready(function () {
 
@@ -87,6 +87,8 @@ $(document).ready(function () {
         $("#price-id").val("");
         $("#description-id").val("");
     })
+
+    getSearchResult();
 
 });
 

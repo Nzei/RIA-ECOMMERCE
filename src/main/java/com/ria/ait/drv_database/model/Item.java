@@ -16,7 +16,7 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer itemId;
-    @Size(min = 10, message = "Name should be at least 10 characters")
+    @Size(min = 5, message = "Name should be at least 10 characters")
     @ApiModelProperty(notes = "The name of the item")
     private String itemName;
     @Min(value = 10, message = "Price should be at least 10")
